@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Affichage de la Bucket List</h1>
+
+{#    Sur la page de liste d'idées, affichez le titre de toutes les idées publiées, de la plus récente
+à la plus ancienne. En cliquant sur une idée, l'utilisateur doit être mené à la page de détail
+de celle-ci. Dans Twig, vous aurez besoin des 2 arguments de la fonction path() pour
+générer ces liens.#}
+    <section>
+        {% for wish in wishs %}
+            <a href="{{ path('wish_show', {'id':wish.id}) }}" title="View details about {{ wish.title }}">
+                <h3>{{ wish.title }}</h3>
+            </a>
+
+        {% endfor %}
+    </section>
+{% endblock %}
+
+{% block title %}
+    {{ parent() }} | List
+{% endblock %}
+

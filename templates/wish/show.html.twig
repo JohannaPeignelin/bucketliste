@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ parent() }} | Show
+{% endblock %}
+
+{% block body %}
+    <h1>Affichage du détail d'un item de la Bucklet Liste</h1>
+    <section>
+        <h3>{{ wish.title }}</h3>
+        <div>Description du wish : {{ wish.description }}</div>
+        <div>Auteur du wish : {{ wish.author }}</div>
+        <div>Date de création du wish : {{ wish.dateCreated | date('D, d M Y H:i:s')}}</div>
+    </section>
+{% endblock %}
+
