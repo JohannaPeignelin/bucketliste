@@ -1,0 +1,12 @@
+{% extends '/base.html.twig' %}
+
+{% block body %}
+    {% embed 'views/form/wish_form.html.twig' with {'wishForm' : wishForm } %}
+        {% block h2 %}Add a new Idea{% endblock %}
+        {% block buttonLabel %}Add a new one{% endblock %}
+    {% endembed %}
+{% endblock %}
+
+{% block titlek %}
+    {{ parent() }} | Add
+{% endblock %}
