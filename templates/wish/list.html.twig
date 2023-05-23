@@ -8,11 +8,14 @@
 de celle-ci. Dans Twig, vous aurez besoin des 2 arguments de la fonction path() pour
 générer ces liens.#}
     <section>
-        {% for wish in wishs %}
-            <a href="{{ path('wish_show', {'id':wish.id}) }}" title="View details about {{ wish.title }}">
-                <h3>{{ wish.title }}</h3>
-            </a>
 
+        {% for categori in categories %}
+            <h3>{{ categori.name }}</h3>
+            {% for wish in categori.wish %}
+                <a href="{{ path('wish_show', {'id':wish.id}) }}" title="View details about {{ wish.title }}">
+                    <h3>{{ wish.title }}</h3>
+                </a>
+            {% endfor %}
         {% endfor %}
     </section>
 {% endblock %}

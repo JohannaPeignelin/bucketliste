@@ -68,5 +68,8 @@ a:hover{
     text-decoration: none;
 }
 
+.category-list .form-check {
+    margin-left: 10px; // Ajouter une marge à gauche entre chaque élément
+}
 
 

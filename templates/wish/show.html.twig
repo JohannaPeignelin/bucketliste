@@ -11,6 +11,9 @@
         <div>Description du wish : {{ wish.description }}</div>
         <div>Auteur du wish : {{ wish.author }}</div>
         <div>Date de création du wish : {{ wish.dateCreated | date('D, d M Y H:i:s')}}</div>
+        {% for category in wish.category %}
+            <div>Catégorie : {{ category.name}}</div>
+        {% endfor %}
     </section>
 {% endblock %}
 

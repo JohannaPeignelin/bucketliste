@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Wish;
 use App\Form\WishType;
+use App\Repository\CategoryRepository;
 use App\Repository\WishRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -13,14 +14,17 @@ use Symfony\Component\Routing\Annotation\Route;
 class WishController extends AbstractController
 {
     #[Route('', name: 'list')]
-    public function list(WishRepository $wishRepository): Response
+    public function list(WishRepository $wishRepository,CategoryRepository $categoryRepository): Response
     {
         //TODO renvoyer la liste des choses à faire
         $wishs = $wishRepository->findBy([],["dateCreated" => "ASC"], 30);
+        $categories = $categoryRepository->findAll();
 
         dump($wishs);
         return $this->render('wish/list.html.twig',[
-            'wishs' => $wishs
+            'wishs' => $wishs,
+            'categories' =>$categories
+
         ]);
     }
 
